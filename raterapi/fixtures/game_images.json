@@ -1,0 +1,12 @@
+[
+  {
+    "model": "raterapi.image",
+    "pk": 1,
+    "fields": { "game_img": "path/to/catan_image.jpg" }
+  },
+  {
+    "model": "raterapi.image",
+    "pk": 2,
+    "fields": { "game_img": "path/to/pandemic_image.jpg" }
+  }
+]

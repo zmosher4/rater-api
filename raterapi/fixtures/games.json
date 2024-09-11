@@ -1,0 +1,28 @@
+[
+  {
+    "model": "raterapi.game",
+    "pk": 1,
+    "fields": {
+      "title": "Catan",
+      "description": "A game of trading and building.",
+      "designer": "Klaus Teuber",
+      "year_released": 1995,
+      "number_of_players": 4,
+      "game_length_hrs": 1,
+      "age_rec": 10
+    }
+  },
+  {
+    "model": "raterapi.game",
+    "pk": 2,
+    "fields": {
+      "title": "Pandemic",
+      "description": "A cooperative game where players work together to fight disease outbreaks.",
+      "designer": "Matt Leacock",
+      "year_released": 2008,
+      "number_of_players": 4,
+      "game_length_hrs": 1,
+      "age_rec": 8
+    }
+  }
+]
