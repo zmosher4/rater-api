@@ -9,7 +9,8 @@
       "year_released": 1995,
       "number_of_players": 4,
       "game_length_hrs": 1,
-      "age_rec": 10
+      "age_rec": 10,
+      "user": 5
     }
   },
   {
@@ -22,7 +23,8 @@
       "year_released": 2008,
       "number_of_players": 4,
       "game_length_hrs": 1,
-      "age_rec": 8
+      "age_rec": 8,
+      "user": 6
     }
   }
 ]

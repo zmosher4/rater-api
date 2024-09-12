@@ -29,7 +29,7 @@ class UserViewSet(viewsets.ViewSet):
                 last_name=serializer.validated_data['last_name'],
                 password=serializer.validated_data['password'],
             )
-            token, created = Token.objects.get_or_create(user=user)
+            token = Token.objects.get_or_create(user=user)
             return Response({"token": token.key}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 

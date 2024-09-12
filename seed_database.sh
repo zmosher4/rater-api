@@ -12,3 +12,4 @@ python manage.py loaddata categories.json
 python manage.py loaddata games.json
 python manage.py loaddata game_images.json
 python manage.py loaddata reviews.json
+python manage.py loaddata game_categories.json

@@ -1,8 +1,10 @@
 from django.db import models
 from .game import Game
+from django.contrib.auth.models import User
 
 
 class Review(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="reviews")
     number_rating = models.PositiveIntegerField()
     comment = models.TextField()
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
