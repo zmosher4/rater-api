@@ -13,6 +13,9 @@ class GameSerializer(serializers.ModelSerializer):
         # Check if the authenticated user is the owner
         return self.context['request'].user == obj.user
 
+    def get_average_rating(self, obj):
+        return obj.average_rating
+
     class Meta:
         model = Game
         fields = [
@@ -25,6 +28,7 @@ class GameSerializer(serializers.ModelSerializer):
             'is_owner',
             'year_released',
             'categories',
+            'average_rating',
         ]
 
 
@@ -71,6 +75,33 @@ class GameViewSet(viewsets.ViewSet):
             return Response(serializer.data, status=status.HTTP_200_OK)
         except Game.DoesNotExist:
             return Response(serializer.errors, status.HTTP_400_BAD_REQUEST)
+
+    def update(self, request, pk=None):
+        try:
+            game = Game.objects.get(pk=pk)
+
+            self.check_object_permissions(request, game)
+
+            serializer = GameSerializer(data=request.data)
+
+            game.title = request.data.get('title')
+            game.designer = request.data.get('designer')
+            game.year_released = request.data.get('year_released')
+            game.number_of_players = request.data.get('number_of_players')
+            game.game_length_hrs = request.data.get('game_length_hrs')
+            game.age_rec = request.data.get('age_rec')
+            game.save()
+
+            category_ids = request.data.get('categories', [])
+            game.categories.set(category_ids)
+
+            serializer = GameSerializer(game, context={'request': request})
+            return Response(None, status=status.HTTP_204_NO_CONTENT)
+
+            return Response(serializer.errors, status.HTTP_400_BAD_REQUEST)
+
+        except Game.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
 
 
 # Title

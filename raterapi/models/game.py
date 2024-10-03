@@ -17,3 +17,23 @@ class Game(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property
+    def average_rating(self):
+        """Average rating calculated attribute for each game"""
+        ratings = self.ratings.all()
+
+        # Sum all of the ratings for the game
+        total_rating = 0
+        ratings_num = 0
+        for rating in ratings:
+            total_rating += rating.rating
+            ratings_num += 1
+        avg_rating = total_rating / ratings_num
+
+        return avg_rating
+
+        # Calculate the averge and return it.
+        # If you don't know how to calculate averge, Google it.
+
+        # return the result

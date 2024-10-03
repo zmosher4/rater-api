@@ -3,7 +3,6 @@
     "model": "raterapi.review",
     "pk": 1,
     "fields": {
-      "number_rating": 5,
       "comment": "An amazing game with great replay value!",
       "game": 1,
       "user": 4
@@ -13,7 +12,6 @@
     "model": "raterapi.review",
     "pk": 2,
     "fields": {
-      "number_rating": 4,
       "comment": "Challenging but fun, a great cooperative experience.",
       "game": 2,
       "user": 3
