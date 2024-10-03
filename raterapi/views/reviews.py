@@ -11,7 +11,7 @@ class ReviewSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Review
-        fields = ['id', 'number_rating', 'comment', 'game', 'user', 'is_owner']
+        fields = ['id', 'comment', 'game', 'user', 'is_owner']
         read_only_fields = ['user']
 
     def get_is_owner(self, obj):
@@ -32,13 +32,11 @@ class ReviewViewSet(viewsets.ViewSet):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def create(self, request):
-        number_rating = request.data.get('number_rating')
         comment = request.data.get('comment')
         game_id = request.data.get('gameId')
 
         review = Review.objects.create(
             user=request.user,
-            number_rating=number_rating,
             comment=comment,
             game_id=game_id,
         )
